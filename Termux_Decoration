@@ -119,7 +119,7 @@ PS1='\[\033[01;32m\]$name@$hostname\[\033[32m\]:\[\033[01;35m\]\w\[\033[00m\]$ '
 	echo "Making Changes"
 	copy
 	echo "changes had been made. please restart termux"
-	
+	echo
 	printf "${CYAN}"
 	echo "Script By TITAN HACKY"
 
@@ -134,7 +134,7 @@ PS1='\[\033[01;31m\]$name@$hostname\[\033[33m\]:\[\033[01;34m\]\w\[\033[00m\]$ '
         echo "$script" > /data/data/com.termux/files/usr/etc/bash.bashrc
 	echo "Making Changes"
 	echo "change had been made. please restart termux"
-	
+	echo
 	printf"${CYAN}"
 	echo "Script By TITAN HACKY"
 
@@ -177,7 +177,7 @@ fi
 	copy
         echo "changes had been made. please restart termux"
 	printf "${CYAN}"
-	
+	echo
 	echo "Script By TITAN HACKY"
 
 elif [ $option -eq 4 ];
