@@ -1,0 +1,191 @@
+#!/bin/bash
+GREEN="\e[92m"
+RED="\e[31m"
+BLUE="\e[34m"
+CYAN="\e[36m"
+YELLOW="\e[33m"
+PURPLE="\e[35m"
+STOP="\e[0m"
+
+
+clear
+printf "${GREEN}"
+
+echo " _____ ___ _____  _    _   _   _   _    _    ____ _  ____   __
+|_   _|_ _|_   _|/ \  | \ | | | | | |  / \  / ___| |/ /\ \ / /
+  | |  | |  | | / _ \ |  \| | | |_| | / _ \| |   | ' /  \ V /
+  | |  | |  | |/ ___ \| |\  | |  _  |/ ___ \ |___| . \   | |
+  |_| |___| |_/_/   \_\_| \_| |_| |_/_/   \_\____|_|\_\  |_|
+                                      -Termux Decorations"
+
+
+
+
+copy(){
+	spin &
+	pid=$!
+	for i in 'seq 1 10'
+	do
+		sleep 1
+	done
+	kill $pid
+	echo
+}
+
+spin(){
+	while [ 1 ]
+	do
+		echo -ne "."
+		sleep 0.5
+	done
+}
+
+
+printf "${STOP}"
+echo
+echo
+echo
+echo -ne "Enter Your Name [Eg: Root]: "
+read name
+echo -ne "Enter The Host Name [Eg: LocalHost]: "
+read hostname
+
+script1="if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then                                                                          command_not_found_handle() {
+                /data/data/com.termux/files/usr/libexec/termux/command-not-found
+"$1"                                                                                     }
+fi
+
+PS1='\[\033[01;32m\]$name@$hostname\[\033[00m\]:\[\033[01;35m\]\w\[\033[00m\]$ '"
+
+printf "${RED}"
+echo
+echo "OPTIONS: "
+echo
+printf "${CYAN}"
+echo -ne "1) "
+printf "${GREEN}"
+echo -ne "$name@$hostname"
+printf "${GREEN}"
+echo -ne ":~"
+printf "${PURPLE}"
+echo -ne "/storage"
+printf "${STOP}"
+echo "$"
+
+printf "${CYAN}"
+echo
+echo -ne "2) "
+printf "${RED}"
+echo -ne "$name"
+printf "${RED}"
+echo -ne "@"
+printf "${RED}"
+echo -ne "$hostname"
+printf "${YELLOW}"
+echo -ne ":~"
+printf "${BLUE}"
+echo -ne "/storage"
+printf "${STOP}"
+echo "#"
+
+printf "${CYAN}"
+echo
+echo -ne "3) "
+printf "${GREEN}"
+echo "Customize Manually"
+echo
+
+printf "${CYAN}"
+echo -ne "4) "
+printf "${GREEN}"
+echo "Exit"
+echo
+
+echo
+printf "${BLUE}"
+echo -ne "ENTER YOUR OPTIONS: "
+read option
+echo
+
+if [ $option -eq 1 ];
+then
+	script="if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
+        command_not_found_handle() {                                                             /data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+        }
+fi
+
+PS1='\[\033[01;32m\]$name@$hostname\[\033[32m\]:\[\033[01;35m\]\w\[\033[00m\]$ '"
+        echo "$script" > /data/data/com.termux/files/usr/etc/bash.bashrc
+	echo "Making Changes"
+	copy
+	echo "changes had been made. please restart termux"
+	printf "${CYAN}"
+	echo "Script By TITAN HACKY"
+
+elif [ $option -eq 2 ];
+then
+	script="if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then
+        command_not_found_handle() {                                                             /data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+        }
+fi
+
+PS1='\[\033[01;31m\]$name@$hostname\[\033[33m\]:\[\033[01;34m\]\w\[\033[00m\]$ '"
+        echo "$script" > /data/data/com.termux/files/usr/etc/bash.bashrc
+	echo "Making Changes"
+	echo "change had been made. please restart termux"
+	printf"${CYAN}"
+	echo "Script By TITAN HACKY"
+
+elif [ $option -eq 3 ];
+then
+	printf "${GREEN}"
+	echo "              BLACK : 30m"
+	echo "              RED   : 31m"
+	echo "              GREEN : 32m"
+	echo "              YELLOW: 33m"
+	echo "              BLUE  : 34m"
+	echo "              PURPLE: 35m"
+	echo "              CYAN  : 36m"
+	echo "              WHITE : 37m"
+	echo "For Eg: For Green Enter 32m"
+	echo
+	printf "${BLUE}"
+	echo -ne "Colour For Name: "
+	read color1
+	echo -ne "Colour For HostName: "
+	read color2
+	echo -ne "Color For the Symbol @: "
+	read color3
+	echo -ne "Colour For DoubleColon: "
+	read color4
+	echo -ne "Colour For Working Directory: "
+	read color5
+	echo -ne "Enter the Symbol[$ or #]: "
+	read symbol
+	echo -ne "Colour For Symbol: "
+	read color6
+
+	script="if [ -x /data/data/com.termux/files/usr/libexec/termux/command-not-found ]; then                                                    
+	command_not_found_handle() {                                                             /data/data/com.termux/files/usr/libexec/termux/command-not-found "$1"
+	}
+fi
+                                                                      PS1='\[\033[01;$color1\]$name\[\033[01;$color2\]@\[\033[01;$color3\]$hostname\[\033[$color4\]:\[\033[01;$color5\]\w\[\033[$color6\]$symbol '"
+								          echo "$script" > /data/data/com.termux/files/usr/etc/bash.bashrc
+									  echo "Making Changes"
+	copy
+        echo "changes had been made. please restart termux"
+	printf "${CYAN}"
+	echo "Script By TITAN HACKY"
+
+elif [ $option -eq 4 ];
+then
+	echo
+	printf "${CYAN}"
+	echo "Scrit By TITAN HACKY"
+	echo
+	printf "${CYAN}"
+	echo -ne  "exiting"
+	copy
+
+fi
+
